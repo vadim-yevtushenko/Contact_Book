@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
                         R.layout.my_item,
                         new String[]{KEY_FIRST_NAME, KEY_SECOND_NAME},
                         new int[]{android.R.id.text1, android.R.id.text2});
-                contactAdapter.setFirstCharKey(KEY_FIRST_NAME);
 
                 lvContacts.setAdapter(contactAdapter);
                 break;
@@ -122,9 +121,8 @@ public class MainActivity extends AppCompatActivity {
                 contactAdapter = new ContactAdapter(this,
                         contacts,
                         R.layout.my_item,
-                        new String[]{KEY_SECOND_NAME,KEY_FIRST_NAME},
+                        new String[]{KEY_SECOND_NAME, KEY_FIRST_NAME},
                         new int[]{android.R.id.text1, android.R.id.text2});
-                contactAdapter.setFirstCharKey(KEY_SECOND_NAME);
 
                 lvContacts.setAdapter(contactAdapter);
                 break;

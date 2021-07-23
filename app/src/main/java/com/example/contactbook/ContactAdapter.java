@@ -34,7 +34,7 @@ public class ContactAdapter extends SimpleAdapter {
     private LayoutInflater inflater;
     private List<? extends Map<String, ?>> data;
     private int count;
-    private String firstCharKey;
+    private String[] from;
 
     public ContactAdapter(Context context,
                           List<? extends Map<String, ?>> data,
@@ -44,6 +44,7 @@ public class ContactAdapter extends SimpleAdapter {
         super(context, data, resource, from, to);
         this.data = data;
         this.resource = resource;
+        this.from = from;
         inflater = LayoutInflater.from(context);
     }
 
@@ -59,8 +60,8 @@ public class ContactAdapter extends SimpleAdapter {
 
         Map<String, String> contactMap = (Map<String, String>) data.get(position);
 
-        tvName.setText(contactMap.get(MainActivity.KEY_FIRST_NAME));
-        tvLastName.setText(contactMap.get(MainActivity.KEY_SECOND_NAME));
+        tvName.setText(contactMap.get(from[0]));
+        tvLastName.setText(contactMap.get(from[1]));
 
         if (contactMap.get(MainActivity.KEY_AVATAR).equals("0")) {
             tvAvatar.setText(getFirstChar(contactMap));
@@ -74,7 +75,7 @@ public class ContactAdapter extends SimpleAdapter {
     }
 
     private String getFirstChar(Map<String, String> contactMap) {
-        String firstChar = String.valueOf(contactMap.get(firstCharKey).charAt(0));
+        String firstChar = String.valueOf(contactMap.get(from[0]).charAt(0));
         return firstChar;
     }
 
@@ -84,9 +85,5 @@ public class ContactAdapter extends SimpleAdapter {
             count = 0;
         }
         return Colors.values()[count++].getColor();
-    }
-
-    public void setFirstCharKey(String firstCharKey) {
-        this.firstCharKey = firstCharKey;
     }
 }
