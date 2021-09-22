@@ -4,9 +4,9 @@ import com.example.contactbook.contact.Contact;
 
 import java.util.Comparator;
 
-public class ComparatorByName implements Comparator<Contact> {
+public class ComparatorByUserName implements Comparator<Contact> {
     @Override
     public int compare(Contact contact1, Contact contact2) {
-        return contact1.getName().compareTo(contact2.getName());
+        return contact1.getUserName().compareTo(contact2.getUserName());
     }
 }
