@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="#EDE4E4"
     android:id="@+id/itemLayout"
-    tools:context=".ContactActivity">
+    tools:context=".MainActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivAvatar"
