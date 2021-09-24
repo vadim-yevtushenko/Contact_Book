@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -55,6 +56,7 @@ public class FragmentContactsList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         activity = (MainActivity) getActivity();
         View view = inflater.inflate(R.layout.fragment_contacts_list, container, false);
 
@@ -78,12 +80,11 @@ public class FragmentContactsList extends Fragment {
             public void onResponse(Call<List<Contact>> call, Response<List<Contact>> response) {
                 contacts = (ArrayList<Contact>) response.body();
                 sortListContacts();
-
             }
 
             @Override
             public void onFailure(Call<List<Contact>> call, Throwable t) {
-                Toast.makeText(activity, "Error connection", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Error connection", Toast.LENGTH_LONG).show();
             }
         });
     }

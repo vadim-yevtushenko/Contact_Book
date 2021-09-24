@@ -52,7 +52,7 @@ public class FragmentContact extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        activity = (MainActivity)getContext();
+        activity = (MainActivity) getContext();
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
         if (getArguments() != null) {
             id = getArguments().getLong(MainActivity.KEY_ID);
